@@ -1,0 +1,122 @@
+/*
+Legenda dei Return:
+
+-1 - Termina Programma
+1 - Prodotti - Inserimento
+2 - Prodotti - Ricerca
+3 - Cliente - Inserimento
+4 - Cliente - Stampa
+5 - Cliente - Ricerca
+6 - Ordini Fornitore Inserimento
+7 - Ordini Fornitore Stampa
+8 - Ordini Cliente Inserimento
+9 - Ordini Cliente Stampa
+10 - Statistiche
+
+*/
+int menu(){
+	int x,sc=0;
+	do{
+									// Qui metto il menu superficiale, che poi verrà "ingrandito" in base alla richiesta
+//		system("cls");
+		printf("Menu: ");
+		printf("\n\n1 -> Prodotti");
+		printf("\n2 -> Cliente");
+		printf("\n3 -> Ordini Fornitore");
+		printf("\n4 -> Ordini Cliente");
+		printf("\n5 -> Statistiche");
+		printf("\n6 -> Termina Programma");
+		printf("\n\nComando: ");
+		scanf("%d",&x);
+									// Switch che modifica il menu su misura
+		switch(x){
+			case 1: 				// Espansione prodotti
+				while(sc<1||sc>2){
+				system("cls");
+				printf("Menu: ");
+				printf("\n\n%c -> Prodotti",254);
+					printf("\n   1 -> Inserimento");
+					printf("\n   2 -> Ricerca");
+				printf("\n%c -> Cliente",254);
+				printf("\n%c -> Ordini Fornitore",254);
+				printf("\n%c -> Ordini Cliente",254);
+				printf("\n%c -> Statistiche",254);
+				printf("\n%c -> Termina Programma",254);
+				printf("\n\nComando: ");
+				scanf("%d",&sc);
+				if(sc==1){
+					return 1;
+				}else{
+					return 2;
+				}				
+				}
+			break;
+			case 2: 				// Espansione Cliente
+				while(sc<1||sc>3){
+				system("cls");
+				printf("Menu: ");
+				printf("\n\n%c -> Prodotti",254);
+				printf("\n%c -> Cliente",254);
+					printf("\n   1 -> Inserimento");
+					printf("\n   2 -> Stampa");
+					printf("\n   3 -> Ricerca");
+				printf("\n%c -> Ordini Fornitore",254);
+				printf("\n%c -> Ordini Cliente",254);
+				printf("\n%c -> Statistiche",254);
+				printf("\n%c -> Termina Programma",254);
+				printf("\n\nComando: ");
+				scanf("%d",&sc);
+				if(sc==1){
+					return 3;
+				}else if(sc==2){
+					return 4;
+				}else{
+					return 5;       
+				}				
+				}
+			break;
+			case 3: 				// Espansione Ordini Fornitore
+				while(sc<1||sc>2){
+				system("cls");
+				printf("Menu: ");
+				printf("\n\n%c -> Prodotti",254);
+				printf("\n%c -> Cliente",254);
+				printf("\n%c -> Ordini Fornitore",254);
+					printf("\n   1 -> Inserimento");
+					printf("\n   2 -> Stampa");
+				printf("\n%c -> Ordini Cliente",254);
+				printf("\n%c -> Statistiche",254);
+				printf("\n%c -> Termina Programma",254);
+				printf("\n\nComando: ");
+				scanf("%d",&sc);
+				}
+				if(sc==1){
+					return 6;
+				}else{
+					return 7;
+				}				
+			break;
+			case 4: 				// Espansione Ordini Cliente
+				while(sc<1||sc>2){
+				system("cls");
+				printf("Menu: ");
+				printf("\n\n%c -> Prodotti",254);
+				printf("\n%c -> Cliente",254);
+				printf("\n%c -> Ordini Fornitore",254);
+				printf("\n%c -> Ordini Cliente",254);
+					printf("\n   1 -> Inserimento");
+					printf("\n   2 -> Stampa");
+				printf("\n%c -> Statistiche",254);
+				printf("\n%c -> Termina Programma",254);
+				printf("\n\nComando: ");
+				scanf("%d",&sc);
+				}
+				if(sc==1){
+					return 8;
+				}else{
+					return 9;
+				}
+		}
+	}while(x!=6);
+	return -1;
+}
