@@ -1,0 +1,65 @@
+/*
+	Name: Terminale di Gestione di un Magazzino
+	Copyright: /
+	Author: Biasuzzi Davide, Parovel filippo
+	Date: Started 10/05/20, Finished ??//??/20
+	Description: 
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <math.h> 
+#include <windows.h>
+#include <process.h>
+
+bool start () {
+	char id[50]="Davide";			// Id Effettivo
+	char password[50]="1234";		// Password Effettiva
+	char ins_id[50];				// Id
+	char ins_password[50];			// Password
+	int j=0;						// Conta Password Sbagliate
+	do{			
+		system("cls");	system("color 7");
+		printf("Buongiorno! Benvenuto nel terminale di gestione del magazzino!");
+									// Login
+		printf("\n\nLogin:");
+		printf("\n  ID: ");
+		gets(ins_id);
+		printf("  Password: ");
+		gets(ins_password);
+									// Verifico
+		if(strcmp(password,ins_password)==0&&strcmp(id,ins_id)==0){
+									// Comunica Esito Login
+			system("color 2");
+			printf("\nLogin Avvenuto Correttamente ");
+		}else{
+									// Comunica Esito Login
+			system("color 4");
+			printf("\nErrore! Password o ID errato! ");
+			j++;					// Incremento il contattore delle password sbagliate, in questo modo alla 3a password sbagliata il programma terminerà
+			printf("\n\nAttenzione! Hai ancora %d/3 tentativi! ",j);
+		}
+									// Attesa e poi cls
+		for(int i=0;i<3;i++){
+			Sleep(600);
+			printf(". ");
+		}
+	}while(strcmp(password,ins_password)!=0&&strcmp(id,ins_id)!=0&&j!=3);
+									// Pulizia schermo e colore bianco
+	system("cls");	
+	system("color 7"); 
+									// Return True se la password e corretta
+	return strcmp(password,ins_password)==0&&strcmp(id,ins_id)==0;
+}
+
+int main(){
+	if(!start()){return 0;}			
+	/* 
+	In questo punto la funzione start ha verificato se l'utente ha inserito la password giusta,
+	in quel caso ritorna true, altrimenti se l'utente ha sbagliato 3 volte la password, ritorna false
+	e fa terminare il programma
+	*/
+	printf("Benvenuto!");
+	
+}
